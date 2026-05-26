@@ -1,28 +1,36 @@
 # AI Readiness Simple Funnel
 
-Simple, clean static website using PayPal Buy Now buttons.
+Clean, fast-converting funnel with backend lead capture to Close.com.
 
-### Files
-- `index.html` → Main landing page ($7 AI Readiness Scan offer + lead capture form)
-- `upsell.html` → Post-$7 payment upsell page ($49 and $479 options)
-- `delivery.html` → Final thank-you / report delivery page (PayPal success redirect target)
+### Current Architecture
+- **index.html** → Landing page with lead capture form
+- **server.js** → Backend that captures leads and pushes them to Close.com with tag `AI-Scan-Initial`
+- **upsell.html** → Page showing all 3 PayPal options ($7, $49, $479)
+- **delivery.html** → Thank you / delivery page
 
-### How to Use
-1. Create 3 PayPal "Buy Now" buttons ($7, $49, $479)
-2. Paste each button’s full HTML code into the correct placeholder in the files
-3. For the **$7 button**, set the **Success URL** to:  
-   `https://ai-readiness-simple-production.up.railway.app/delivery.html`
-4. Commit changes — Railway will auto-redeploy
+### How It Works
+1. User fills form on main page
+2. Form submits to `/api/capture-lead` → lead is pushed to Close.com automatically
+3. User is redirected to upsell.html (all 3 purchase options visible)
+4. PayPal handles payments
+5. After payment, user lands on delivery.html
 
 ### Live Website
-**Main page:** https://ai-readiness-simple-production.up.railway.app/
+- **Main Page:** https://ai-readiness-simple-production.up.railway.app/
+- **Upsell Page:** https://ai-readiness-simple-production.up.railway.app/upsell.html
+- **Delivery Page:** https://ai-readiness-simple-production.up.railway.app/delivery.html
 
-**Delivery page:** https://ai-readiness-simple-production.up.railway.app/delivery.html
+### Tech Stack
+- Railway (Node.js + static files)
+- Express server for lead capture
+- Close.com API integration
+- PayPal Buy Now buttons on upsell page
+
+### Deployment
+Any change to the files triggers automatic redeploy on Railway.
 
 ---
 
-You now have a clean, accurate README that reflects everything in the repo.
+Would you like me to add anything else to this README (such as environment variables needed, how to add more states, or abandoned cart ideas)?
 
-Would you like me to also update the README with any additional notes (such as how to capture leads or abandoned cart ideas)? Or are you ready to move on to inserting the actual PayPal button codes into the files?
-
-Just say the word and I’ll help you finish this.
+Just say **"update it"** and I’ll give you the final version, or tell me what to add.
