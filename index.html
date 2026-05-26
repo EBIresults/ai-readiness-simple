@@ -34,7 +34,7 @@
 
     <div class="story">
         <strong>Mike the Plumber Story:</strong><br>
-        Mike had been in business for 10 years with great reviews. But when people enter this into the search bar "best plumber near me", he never showed up. His phone stopped ringing.<br><br>
+        Mike had been in business for 10 years with great reviews. But when people enter "best plumber near me", he never showed up. His phone stopped ringing.<br><br>
         We scanned his site — 35/100. Fixed it in 60 minutes. Now AI recommends him first.
     </div>
 
@@ -47,17 +47,18 @@
     <h2 style="text-align:center; margin:32px 0 16px;">Run Your $7 AI Readiness Scan Now</h2>
     <p style="text-align:center; color:#94a3b8; margin-bottom:24px;">60-second scan • Score out of 100 • Specific fixes listed • Report emailed within 24 hours</p>
 
-    <!-- Lead Capture Form - redirects to upsell page -->
     <div class="form">
-        <form action="https://formspree.io/f/xpqblwgw" method="POST">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
+        <form id="leadForm" action="/api/capture-lead" method="POST">
+            <input type="text" name="name" placeholder="Full Name *" required>
+            <input type="email" name="email" placeholder="Email *" required>
             <input type="tel" name="phone" placeholder="Phone Number">
-            <input type="text" name="website" placeholder="Your Website URL">
-            
-            <!-- Redirects to upsell page after form submission -->
-            <input type="hidden" name="_next" value="https://ai-readiness-simple-production.up.railway.app/upsell.html">
-            
+            <input type="url" name="website" placeholder="Your Website URL *" required>
+            <input type="text" name="city" placeholder="City">
+            <select name="state" required>
+                <option value="">State</option>
+                <option value="CA">California</option>
+                <!-- Add more states if needed -->
+            </select>
             <button type="submit" class="btn">🔍 Run My $7 AI Readiness Scan Now</button>
         </form>
     </div>
